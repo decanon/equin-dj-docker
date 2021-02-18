@@ -5,6 +5,8 @@ services:
     image: hendradev/equin-dj-docker
     container_name: equin-dj-c
     build: .
+    volumes:
+      - .:/equin-dj-docker
     ports:
-    - "8000:8000"
+      - "8000:8000"
     command: python3 manage.py runserver 0.0.0.0:8000
