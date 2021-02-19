@@ -10,3 +10,17 @@ services:
     ports:
       - "8000:8000"
     command: python3 manage.py runserver 0.0.0.0:8000
+
+  db-postgres:
+    image: library/postgres:13
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "db"
+
+volumes:
+  postgres_data:
